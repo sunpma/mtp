@@ -18,7 +18,7 @@ curl -s -o mtproxy.sh https://cdn.jsdelivr.net/gh/sunpma/mtp/mtproxy.sh && chmod
 
 ```bash
 bash mtproxy.sh start
-
+```
 调试运行
 
 ```bash
