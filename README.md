@@ -12,6 +12,8 @@ curl -s -o mtproxy.sh https://raw.githubusercontent.com/sunpma/mtp/master/mtprox
 curl -s -o mtproxy.sh https://cdn.jsdelivr.net/gh/sunpma/mtp/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
 ```
 
+ ![demo.png](https://raw.githubusercontent.com/sunpma/mtp/master/demo.png)
+
 ## 使用
 
 运行服务
