@@ -7,8 +7,6 @@
 ```bash
 mkdir /home/mtproxy && cd /home/mtproxy
 
-curl -s -o mtproxy.sh https://raw.githubusercontent.com/sunpma/mtp/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
-## 或者
 curl -s -o mtproxy.sh https://cdn.jsdelivr.net/gh/sunpma/mtp/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
 ```
 
