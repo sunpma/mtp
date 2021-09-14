@@ -5,12 +5,12 @@
 执行如下代码进行安装
 
 ```bash
-## 新建目录
+// 新建目录
 mkdir /home/mtproxy && cd /home/mtproxy
 
-## 脚本安装
+// 脚本安装
 curl -s -o mtproxy.sh https://raw.githubusercontent.com/sunpma/mtp/master/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
-## 或者
+// 或者
 curl -s -o mtproxy.sh https://cdn.jsdelivr.net/gh/sunpma/mtp/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
 ```
 
