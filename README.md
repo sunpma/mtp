@@ -8,10 +8,8 @@
 ## 新建目录
 mkdir /home/mtproxy && cd /home/mtproxy
 
-## 脚本安装
+## 开始安装
 curl -s -o mtproxy.sh https://raw.githubusercontent.com/sunpma/mtp/master/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
-## 或者
-curl -s -o mtproxy.sh https://cdn.jsdelivr.net/gh/sunpma/mtp/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
 ```
 
  ![demo.png](https://raw.githubusercontent.com/sunpma/mtp/master/demo.png)
