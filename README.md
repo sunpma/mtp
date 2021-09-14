@@ -56,6 +56,7 @@ chmod 755 /home/mtproxy/mtproxy.sh
 
 vi /etc/crontab
 
-## 在最后加入此行后保存即可；
+## 加入下面这条命令后保存即可；
+
 @reboot root nohup bash /home/mtproxy/mtproxy.sh start > /dev/null 2>&1 &
 ```
