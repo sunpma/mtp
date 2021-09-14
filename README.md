@@ -51,10 +51,11 @@ rm -rf /home/mtproxy
 
 ## 开机启动
 
-开机启动脚本，如果你的rc.local文件不存在请检查开机自启服务。
-
-通过编辑文件`/etc/rc.local`将如下代码加入到开机自启脚本中：
-
 ```bash
-bash /home/mtproxy/mtproxy.sh start > /dev/null 2>&1 &
+chmod 755 /home/mtproxy/mtproxy.sh
+
+vi /etc/crontab
+
+## 在最后加入此行后保存即可；
+@reboot root nohup bash /home/mtproxy/mtproxy.sh start > /dev/null 2>&1 &
 ```
