@@ -177,8 +177,8 @@ config_mtp(){
   done
   
    # config info
-  public_ip=$(curl -s https://api.ip.sb/ip --ipv4)
-  [ -z "$public_ip" ] && public_ip=$(curl -s ipinfo.io/ip --ipv4)
+  public_ip=$(curl -s ip.sb --ipv4)
+  [ -z "$public_ip" ] && public_ip=$(curl -s ip.sb --ipv4)
   secret=$(head -c 16 /dev/urandom | xxd -ps)
 
   # proxy tag
@@ -230,8 +230,8 @@ info_mtp(){
   status_mtp
   if [ $? == 1 ];then
     source ./mtp_config
-    public_ip=$(curl -s https://api.ip.sb/ip --ipv4)
-    [ -z "$public_ip" ] && public_ip=$(curl -s ipinfo.io/ip --ipv4)
+    public_ip=$(curl -s ip.sb --ipv4)
+    [ -z "$public_ip" ] && public_ip=$(curl -s ip.sb --ipv4)
     domain_hex=$(xxd -pu <<< $domain | sed 's/0a//g')
     client_secret="ee${secret}${domain_hex}"
     echo -e "TMProxy+TLS代理: \033[32m运行中\033[0m"
@@ -255,8 +255,8 @@ run_mtp(){
     curl -s https://core.telegram.org/getProxyConfig -o proxy-multi.conf
     source ./mtp_config
     nat_ip=$(echo $(ip a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print $2}' | cut -d "/" -f1 |awk 'NR==1 {print $1}'))
-    public_ip=`curl -s https://api.ip.sb/ip --ipv4`
-    [ -z "$public_ip" ] && public_ip=$(curl -s ipinfo.io/ip --ipv4)
+    public_ip=`curl -s ip.sb --ipv4`
+    [ -z "$public_ip" ] && public_ip=$(curl -s ip.sb --ipv4)
     nat_info=""
     if [[ $nat_ip != $public_ip ]];then
       nat_info="--nat-info ${nat_ip}:${public_ip}"
@@ -264,7 +264,7 @@ run_mtp(){
     tag_arg=""
     [[ -n "$proxy_tag" ]] && tag_arg="-P $proxy_tag"
     ./mtproto-proxy -u nobody -p $web_port -H $port -S $secret --aes-pwd proxy-secret proxy-multi.conf -M 1 $tag_arg --domain $domain $nat_info >/dev/null 2>&1 &
-    
+
     echo $!>$pid_file
     sleep 2
     info_mtp
@@ -275,7 +275,7 @@ debug_mtp(){
   cd $WORKDIR
   source ./mtp_config
   nat_ip=$(echo $(ip a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print $2}' | cut -d "/" -f1 |awk 'NR==1 {print $1}'))
-  public_ip=`curl -s https://api.ip.sb/ip --ipv4`
+  public_ip=`curl -s ip.sb --ipv4`
   [ -z "$public_ip" ] && public_ip=$(curl -s ipinfo.io/ip --ipv4)
   nat_info=""
   if [[ $nat_ip != $public_ip ]];then

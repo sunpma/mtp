@@ -60,3 +60,13 @@ vi /etc/crontab
 
 @reboot root nohup bash /home/mtproxy/mtproxy.sh start > /dev/null 2>&1 &
 ```
+
+## 服务器设置
+
+如果启动后如果无法访问，请检查一下服务器的端口是否打开了
+以下以centos7 为例
+```bash
+firewall-cmd --zone=public --add-port={your_port}/tcp --permanet
+systemctl restart firewalld.service
+firewalld-cmd --list-ports
+```
